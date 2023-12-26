@@ -18,7 +18,7 @@ class HolidaysController < ApplicationController
     @holiday = Holiday.find_by(id: params[:id])
     render :show
   end
-  
+
   def update
     @holiday = Holiday.find_by(id: params[:id])
     @holiday.update(
@@ -26,7 +26,13 @@ class HolidaysController < ApplicationController
       date: params[:date],
       description: params[:description],
     )
-    render :show 
+    render :show
+  end
+
+  def destroy
+    @holiday = Holiday.find_by(id: params[:id])
+    @holiday.destroy
+    render json: {message: "You destroyed a holiday"}
   end
 
 end
