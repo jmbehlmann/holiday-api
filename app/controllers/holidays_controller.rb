@@ -13,5 +13,11 @@ class HolidaysController < ApplicationController
       )
     render :show
   end
+
+  def show
+    @holiday = Holiday.find_by(id: params[:id])
+    render :show
+  end
+
 end
 
