@@ -1,7 +1,8 @@
 class HolidaysController < ApplicationController
 
-def index
-  render json: {message: "test index"}
-end
+  def index
+    @holidays = Holiday.all
+    render template: "holidays/index"
+  end
 
 end
