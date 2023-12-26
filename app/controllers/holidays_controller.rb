@@ -18,6 +18,16 @@ class HolidaysController < ApplicationController
     @holiday = Holiday.find_by(id: params[:id])
     render :show
   end
+  
+  def update
+    @holiday = Holiday.find_by(id: params[:id])
+    @holiday.update(
+      name: params[:name],
+      date: params[:date],
+      description: params[:description],
+    )
+    render :show 
+  end
 
 end
 
